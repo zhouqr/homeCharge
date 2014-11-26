@@ -4,4 +4,4 @@
 
 
 // Demonstrate how to register services
-angular.module('app.services', []);
+angular.module('homeCharge.services', []);

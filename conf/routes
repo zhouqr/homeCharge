@@ -3,7 +3,9 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                  LoginService.index
+#GET     /                                       staticDir:public/app
+GET     /app/                                   staticDir:public/app
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

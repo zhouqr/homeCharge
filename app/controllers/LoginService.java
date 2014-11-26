@@ -38,7 +38,7 @@ public class LoginService extends BaseController{
 	            renderJSON(ResultInfo.error("用户名不存在！"));
 	        }
 	        //密码sha256加密
-	        if(!Crypto.passwordHash(password, Crypto.HashType.SHA256).equals(user.password)) {
+	        if(!password.equals(user.password)) {
 	            renderJSON(ResultInfo.error("密码错误！"));
 	        }
 

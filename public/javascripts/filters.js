@@ -1,6 +1,6 @@
 
 /* Filters */
-angular.module('weixin.filters', [])
+angular.module('homeCharge.filters', [])
   .filter('fromNow', function() {
     return function(date) {
       return moment(date).fromNow();

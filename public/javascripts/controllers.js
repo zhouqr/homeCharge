@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('weixin.controllers', ['pascalprecht.translate', 'ngCookies'])
+angular.module('homeCharge.controllers', ['pascalprecht.translate', 'ngCookies'])
   .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', 
     function(              $scope,   $translate,   $localStorage,   $window ) {
       // add 'ie' classes to html
