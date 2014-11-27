@@ -3,15 +3,19 @@
 # ~~~~
 
 # Home page
-GET     /                                  LoginService.index
+GET     /                                       LoginService.index
 #GET     /                                       staticDir:public/app
 GET     /app/                                   staticDir:public/app
+
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+GET     /LoginService/login                         LoginService.login
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

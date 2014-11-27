@@ -1,0 +1,40 @@
+      <!-- navbar header -->
+      <div class="navbar-header {{app.settings.navbarHeaderColor}}">
+        <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+          <i class="glyphicon glyphicon-cog"></i>
+        </button>
+        <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+          <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+        <!-- brand -->
+        <a href="#/app/topics" class="navbar-brand text-lt">
+          <i class="fa fa-btc"></i>
+          <img src="public/img/logo.png" alt="." class="hide">
+          <span class="hidden-folded m-l-xs">{{app.name}}</span>
+        </a>
+        <!-- / brand -->
+      </div>
+      <!-- / navbar header -->
+
+      <!-- navbar collapse -->
+      <div class="collapse navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+        <!-- buttons 
+        <div class="nav navbar-nav m-l-sm hidden-xs">
+          <a href="#/" class="btn navbar-btn">
+             <span>专题</span>
+          </a>
+        </div>
+        -->
+        <!-- / buttons -->
+
+
+        <!-- search form -->
+            <!-- <search  header = "true"></search> -->
+        <!-- / search form -->
+
+        <!-- nabar right -->
+            <user_info></user_info>
+        <!-- / navbar right -->
+
+      </div>
+      <!-- / navbar collapse -->

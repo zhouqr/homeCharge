@@ -102,36 +102,6 @@ angular.module('homeCharge.controllers', ['pascalprecht.translate', 'ngCookies']
       isFirstDisabled: false
     };
   }])
- /* //获取专题列表
-  .controller('TopicListCtrl', ['$scope','$http', function($scope,$http) {
-	  var path = 'js/app/topic/topics.json';
-	  var topics = $http.get(path).then(function (resp) {
-	    $scope.topics = resp.data.topics;
-	  });
-  }])*/
-  /*//获取专题列表
-  .controller('TopicDetailCtrl', ['$scope','$http', function($scope,$http) {
-	  var path = 'js/app/topic/topics.json';
-	  var topics = $http.get(path).then(function (resp) {
-	    $scope.topic = resp.data.topics[0];
-	    $scope.topic.date="2014-10-20 12:12:12";
-	    
-	  });
-  }])*/
-   /* //获取微信检索数据
-    .controller('WeiXinSearchCtrl', ['$scope','$http', function($scope,$http) {
-    var path = 'js/app/topic/topics.json';
-    var topics = $http.get(path).then(function (resp) {
-        $scope.topic = resp.data.topics[0];
-        $scope.topic.date="2014-10-20 12:12:12";
-
-    });
-    //检索公众号
-    var weixins = $http.get("js/app/topic/weixin.json").then(function (resp) {
-        $scope.weixins = resp.data.weixins;
-
-    });
-    }])*/
   .controller('AlertDemoCtrl', ['$scope', function($scope) {
     $scope.alerts = [
       { type: 'success', msg: 'Well done! You successfully read this important alert message.' },
@@ -520,12 +490,6 @@ angular.module('homeCharge.controllers', ['pascalprecht.translate', 'ngCookies']
         });
     	
     	
-      /*$http.get('/loginService/login', {username: $scope.user.username,  password: $scope.user.password})
-      .then(function(response) {
-    	  console.log(".........");
-      }, function(x) {
-        $scope.authError = 'Server Error';
-      });*/
     };
   }])
  ;

@@ -27,7 +27,7 @@
         var appPath = '${appPath}';
     </script>
 </head>
-<body ng-controller="AppCtrl">
+<body>
 
 <div class="modal-over bg-black" ng-controller = "LoginController">
   <div class="modal-center animated fadeInUp text-center" style="width:200px;margin:-100px 0 0 -100px;">
@@ -53,7 +53,7 @@
 
 ${appjs.raw()} *{自动加载app目录中所有js，仅开发模式}*
 <script type="text/javascript">
-    angular.bootstrap(document.body,['homeCharge'])
+    angular.bootstrap(document.body,['app'])
 </script>
 </body>
 </html>

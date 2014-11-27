@@ -1,6 +1,6 @@
 
 
-angular.module('homeCharge', ['ngAnimate',
+angular.module('app', ['ngAnimate',
                        'ngCookies',
                        'ngStorage',
                        'ui.router',
@@ -10,9 +10,7 @@ angular.module('homeCharge', ['ngAnimate',
                        'ui.validate',
                        'oc.lazyLoad',
                        'pascalprecht.translate',
-                       'homeCharge.controllers',
-                       'homeCharge.directives',
-                       'homeCharge.filters',
+                       'homeCharge',
                        ])
     .run(
   [          '$rootScope', '$state', '$stateParams',
