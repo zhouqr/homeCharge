@@ -1,16 +1,19 @@
-
-angular.module('homeCharge.charge',[])
+/**
+ * Created with IntelliJ IDEA.
+ * User: xuanzhang
+ * Date: 14-3-18
+ * Time: 下午10:39
+ * To change this template use File | Settings | File Templates.
+ */
+angular.module('homeCharge.charge',['homeCharge.charge.home'])
     .config(function ($stateProvider){
         $stateProvider
-            .state('homeCharge.charge',{
-            	abstract:true,
+            .state('charge',{
                 url:'/charge',
-                templateUrl: appPath + '/charge/view.html',
+                abstract:true,
+                templateUrl: appPath + '/charge/view.html'
             })
-        })
-    
-    
-    
+    })
 
 
 

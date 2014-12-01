@@ -3,9 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /                                       LoginService.index
+GET     /login                                       LoginService.index
+GET     /                                       Application.index
 #GET     /                                       staticDir:public/app
-GET     /app/                                   staticDir:public/app
+GET     /public/app/                                   staticDir:public/app
 
 
 

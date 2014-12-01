@@ -3,7 +3,7 @@
 /* Directives */
 // All the directives rely on jQuery.
 
-angular.module('homeCharge.directives', ['ui.load'])
+angular.module('app.directives', ['ui.load'])
   .directive('uiModule', ['MODULE_CONFIG','uiLoad', '$compile', function(MODULE_CONFIG, uiLoad, $compile) {
     return {
       restrict: 'A',

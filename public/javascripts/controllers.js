@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('homeCharge.controllers', ['pascalprecht.translate', 'ngCookies'])
+angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
   .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', 
     function(              $scope,   $translate,   $localStorage,   $window ) {
       // add 'ie' classes to html
@@ -471,25 +471,4 @@ angular.module('homeCharge.controllers', ['pascalprecht.translate', 'ngCookies']
       });
     };
   }])
-  //登录
-  .controller('LoginController', ['$scope', '$http', '$state', function($scope, $http, $state) {
-    $scope.user = {};
-    $scope.signin = function() {
-      // Try to create
-    	$http({method:'get',url:'/loginService/login',params:$scope.user})
-    	.success(function(data){
-      	  if(data.code == 401){
-      		  alert("用户名或密码错误！");
-      		  $scope.user = {};
-      	  }
-      	  else if(data.code == 200){
-      		  location.href = "/";
-      	  }
-        }, function(x) {
-          $scope.authError = 'Server Error';
-        });
-    	
-    	
-    };
-  }])
- ;
+  
