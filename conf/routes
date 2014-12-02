@@ -18,5 +18,8 @@ GET     /public/                                staticDir:public
 
 GET     /LoginService/login                         LoginService.login
 
+#获取当前登录用户
+GET     /LoginService/currentUser                   LoginService.getUser
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

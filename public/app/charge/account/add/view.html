@@ -1,0 +1,98 @@
+<script type="text/ng-template" id="previewContent.html">
+            <div ng-include="'public/app/charge/account/add/modal.html'"></div>
+</script>
+
+<div class="font-bold">
+      <!-- breadcrumb -->
+        <ul class="breadcrumb b-a">
+          <span>当前位置：</span>
+          <li><a href="#"><i class="fa fa-home"></i>账单</a></li>
+          <li><a href>添加账单</a></li>
+        </ul>
+      <!-- / breadcrumb -->
+</div>
+<div class="wrapper-md" ng-controller = "AccountAddCtrl">
+    <div class="panel panel-default" >
+         <div class="panel-heading font-bold">
+               添加账单
+         </div>
+         <div class="panel-body">
+           <div id="alertinfo" class="alert   {{alertInfo.alertinfoClass}}" style="display:none"><!-- alert-danger -->
+                   <div ><span class="ng-binding ng-scope">{{alertInfo.info}}</span></div>
+           </div>
+           <form class="form-horizontal form-validation" name = "addForm">
+             <div class="form-group">
+               <label class="col-sm-2 control-label">日期：</label>
+               <div class="col-sm-7">
+               <p class="input-group" >
+                  <input type="text" class="form-control" placeholder="请选择日期" ng-model="account.date"  onFocus="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'2020-10-01'})"/> 
+                         <span class="input-group-btn">
+                           <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-calendar"></i></button>
+                         </span>
+                </p>
+               </div>
+             </div>
+             <div class="line line-dashed b-b line-lg pull-in"></div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">花费：</label>
+               <div class="col-sm-7">
+                 <input type="text" class="form-control" ng-model="account.money" placeholder="请输入金额" required ng-maxlength="50">
+               </div>
+             </div>
+             <div class="line line-dashed b-b line-lg pull-in"></div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">时间范围：</label>
+               <div class="col-sm-7" >
+                 <div class="row">
+                   <div class="col-md-6">
+                     <p class="input-group">
+                         <input type="text" id="d4311" class="form-control" placeholder="请选择开始时间" ng-model="topic.startTime"  onFocus="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/> 
+                         <span class="input-group-btn">
+                           <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-calendar"></i></button>
+                         </span>
+                     </p>
+                   </div>
+                   <div class="col-md-6">
+                     <p class="input-group" >
+                         <input type="text" id="d4312" class="form-control" placeholder="请选择结束时间" ng-model="topic.endTime" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})"/>
+                         <span class="input-group-btn">
+                           <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                         </span>
+                     </p>
+                   </div>
+                 </div>
+                 
+               </div>
+             </div>
+             <div class="line line-dashed b-b line-lg pull-in"></div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">简介：</label>
+               <div class="col-sm-7">
+                   <textarea class="form-control" rows="4" placeholder="请输入简介" ng-model="topic.introduction" required ng-maxlength="50"></textarea>
+               </div>
+             </div>
+             <div class="line line-dashed b-b line-lg pull-in"></div>
+             
+             <!-- <div class="form-group">
+               <label class="col-sm-2 control-label">图片：</label>
+               <div class="col-sm-7">
+                   <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
+               </div>
+             </div> -->
+             
+             <!-- <div class="form-group has-error">
+                 <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
+             </div> -->
+             <div class="line line-dashed b-b line-lg pull-in"></div>
+             <div class="form-group">
+               <div class="col-sm-4 col-sm-offset-2">
+                 <button type="button" class="btn btn-primary" ng-disabled="addForm.$invalid" ng-click="addYes()">添加</button>
+                 <button type="button" class="btn btn-default" ng-click="reset()">重置</button>
+               </div>
+             </div>
+           </form>
+         </div>
+  </div>
+  
+</div>
+  

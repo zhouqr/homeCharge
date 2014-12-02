@@ -5,7 +5,7 @@
  * Time: 下午10:39
  * To change this template use File | Settings | File Templates.
  */
-angular.module('homeCharge.charge',['homeCharge.charge.home'])
+angular.module('homeCharge.charge',['homeCharge.charge.home','charge.account','charge.directives.user.userInfo'])
     .config(function ($stateProvider){
         $stateProvider
             .state('charge',{
