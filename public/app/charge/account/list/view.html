@@ -1,0 +1,69 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">账单列表</h1>
+</div>
+<div class="wrapper-md" ng-controller="AccountListCtrl">
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      	未结算账单
+    </div>
+    <div class="row wrapper">
+      <div class="col-sm-5 m-b-xs">
+        <select class="input-sm form-control w-sm inline v-middle">
+          <option value="0">Bulk action</option>
+          <option value="1">Delete selected</option>
+          <option value="2">Bulk edit</option>
+          <option value="3">Export</option>
+        </select>
+        <button class="btn btn-sm btn-default">Apply</button>                
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th style="width:20px;">
+              <label class="i-checks m-b-none">
+                <input type="checkbox" id="checkAll"><i></i>
+              </label>
+            </th>
+            <th>日期</th>
+            <th>花费(&yen;)</th>
+            <th>参与人</th>
+            <th style="width:200px;">付款人</th>
+            <th style="width:200px;">备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="account in accounts">
+            <td><label class="i-checks m-b-none"><input type="checkbox" value="{{account.id}}" class="checkAccount"><i></i></label></td>
+            <td>{{account.date}}</td>
+            <td>{{account.money}}</td>
+            <td>{{account.usernames}}</td>
+            <td>{{account.payUsername}}</td>
+            <td>{{account.introduction}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	 $("#checkAll").click(function(){
+		  if(this.checked)
+			  $(".checkAccount").attr("checked",true);
+		  else
+			  $(".checkAccount").attr("checked",false);
+	  });
+</script>

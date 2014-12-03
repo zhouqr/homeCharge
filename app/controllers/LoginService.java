@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import net.sf.json.JSONObject;
@@ -66,5 +67,13 @@ public class LoginService extends BaseController{
 	    	obj.put("id",user.id);
 	    	obj.put("username", user.username);
 	    	renderJSON(ResultInfo.success(obj));
+	    }
+	    
+	    /**
+	     * 获取系统所有用户
+	     */
+	    public static void getAllUsers(){
+	    	List<User> users = User.findAll();
+	    	renderJSON(ResultInfo.success(users));
 	    }
 }

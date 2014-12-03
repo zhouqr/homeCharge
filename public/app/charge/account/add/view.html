@@ -25,7 +25,7 @@
                <label class="col-sm-2 control-label">日期：</label>
                <div class="col-sm-7">
                <p class="input-group" >
-                  <input type="text" class="form-control" placeholder="请选择日期" ng-model="account.date"  onFocus="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'2020-10-01'})"/> 
+                  <input type="text" id="d4311" class="form-control" placeholder="请选择日期" ng-model="account.date"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'2020-10-01'})"/> 
                          <span class="input-group-btn">
                            <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-calendar"></i></button>
                          </span>
@@ -36,53 +36,45 @@
              <div class="form-group">
                <label class="col-sm-2 control-label">花费：</label>
                <div class="col-sm-7">
-                 <input type="text" class="form-control" ng-model="account.money" placeholder="请输入金额" required ng-maxlength="50">
+                 <input type="text" class="form-control" ng-model="account.money" placeholder="请输入金额" ui-validate=" '$value >= 0.1' " required>
                </div>
              </div>
              <div class="line line-dashed b-b line-lg pull-in"></div>
+             
              <div class="form-group">
-               <label class="col-sm-2 control-label">时间范围：</label>
+               <label class="col-sm-2 control-label">付款人：</label>
                <div class="col-sm-7" >
                  <div class="row">
                    <div class="col-md-6">
-                     <p class="input-group">
-                         <input type="text" id="d4311" class="form-control" placeholder="请选择开始时间" ng-model="topic.startTime"  onFocus="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/> 
-                         <span class="input-group-btn">
-                           <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-calendar"></i></button>
-                         </span>
-                     </p>
-                   </div>
-                   <div class="col-md-6">
-                     <p class="input-group" >
-                         <input type="text" id="d4312" class="form-control" placeholder="请选择结束时间" ng-model="topic.endTime" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})"/>
-                         <span class="input-group-btn">
-                           <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
-                         </span>
-                     </p>
+                    <select ng-model="account.payUserId" class="form-control m-b">
+		              <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
+		            </select>
                    </div>
                  </div>
-                 
+               </div>
+             </div>
+             <div class="line line-dashed b-b line-lg pull-in"></div>
+             
+             <div class="form-group">
+               <label class="col-sm-2 control-label">参与人员：</label>
+               <div class="col-sm-7" >
+                 <div class="row">
+                   <div class="col-md-6">
+                    <label ng-repeat="user in users" class="checkbox-inline">
+		              <input type="checkbox" value="{{user.id}}" class="checkUserIds"> {{user.username}}
+		            </label>
+                   </div>
+                 </div>
                </div>
              </div>
              <div class="line line-dashed b-b line-lg pull-in"></div>
              <div class="form-group">
-               <label class="col-sm-2 control-label">简介：</label>
+               <label class="col-sm-2 control-label">账单说明：</label>
                <div class="col-sm-7">
-                   <textarea class="form-control" rows="4" placeholder="请输入简介" ng-model="topic.introduction" required ng-maxlength="50"></textarea>
+                   <textarea class="form-control" rows="4" placeholder="请输入账单说明" ng-model="account.introduction" ng-maxlength="50"></textarea>
                </div>
              </div>
-             <div class="line line-dashed b-b line-lg pull-in"></div>
              
-             <!-- <div class="form-group">
-               <label class="col-sm-2 control-label">图片：</label>
-               <div class="col-sm-7">
-                   <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
-               </div>
-             </div> -->
-             
-             <!-- <div class="form-group has-error">
-                 <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
-             </div> -->
              <div class="line line-dashed b-b line-lg pull-in"></div>
              <div class="form-group">
                <div class="col-sm-4 col-sm-offset-2">

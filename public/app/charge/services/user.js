@@ -13,6 +13,9 @@ angular.module('services.users', [])
             },
             logout:function(){
                 return $http({method: 'get', url: '/LoginService/logout '});
+            },
+            allUsers:function(){
+            	return $http({method:'get',url:'/LoginService/getAllUsers'});
             }
         }
     });

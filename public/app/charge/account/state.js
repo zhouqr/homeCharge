@@ -1,5 +1,5 @@
 
-angular.module('charge.account',['charge.account.add'])
+angular.module('charge.account',['charge.account.add','charge.account.list'])
     .config(function($stateProvider){
         $stateProvider
             .state('charge.account',{

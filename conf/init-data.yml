@@ -1,3 +1,12 @@
-User(user):
+User(user1):
   username: zhouqr
   password: 123456
+ 
+
+User(user2):
+  username: suil
+  password: 123456
+
+User(user3):
+  username: songlx
+  password: 123456  

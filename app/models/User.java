@@ -24,4 +24,10 @@ public class User extends Model{
 	 */
 	@Column(nullable=false)
 	public String password;
+	
+	/**
+	 * 真实姓名
+	 */
+	@Column(nullable=false)
+	public String name;
 }

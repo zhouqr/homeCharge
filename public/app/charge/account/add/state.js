@@ -1,5 +1,5 @@
 
-angular.module('charge.account.add',[])
+angular.module('charge.account.add',['services.account'])
     .config(function($stateProvider){
         $stateProvider
             .state('charge.account.add',{
@@ -12,8 +12,12 @@ angular.module('charge.account.add',[])
     })
    
     //添加专题
-  .controller('AccountAddCtrl', ['$scope','$http','$modal','Topics', function($scope,$http,$modal,Topics) {
-	  $scope.topic = {};
+  .controller('AccountAddCtrl', ['$scope','$http','$modal','Users','Accounts', function($scope,$http,$modal,Users,Accounts) {
+	  Users.allUsers().success(function(data){
+		  $scope.users = data.info;
+		  console.log(data.info);
+	  });
+	  $scope.account = {};
 	  function alertHelp(className,info){
   		  $("#alertinfo").slideDown(); 
   		  $scope.alertInfo ={
@@ -24,26 +28,35 @@ angular.module('charge.account.add',[])
 	  };
 	
 	  $scope.addYes = function(){
-		  $scope.topic.startTime = $("#d4311").val();
-		  $scope.topic.endTime = $("#d4312").val();
-		  Topics.topicAdd($scope.topic)
+		  $scope.account.date = $("#d4311").val();
+		  debugger
+		  $scope.account.userIds = "";
+		  var ids ="";
+		  $(".checkUserIds").each(function(){
+			  if(this.checked)
+			      ids += $(this).val()+",";
+		  });
+		  if(ids!="")
+			  $scope.account.userIds = ids.substring(0,ids.length-1);
+		  
+		  Accounts.addAccount($scope.account)
 		  .success(function(data){
 		    	  if(data.code == 401){
-		    		  alertHelp("alert-danger","专题名称重复！");
+		    		  alertHelp("alert-danger",data.msg);
 		    		  $scope.topic = {};
 		    	  }
 		    	  else if(data.code == 200){
-		    		  alertHelp("alert-success","专题添加成功！");
+		    		  alertHelp("alert-success","添加成功！");
 		    		  $("#successinfo").slideDown();
 		    	  }
 		      }, function(x) {
 		    }).error(function(data){
-		    	  alertHelp("alert-danger","专题添加失败！");
-	    		  $scope.topic = {};
+		    	  alertHelp("alert-danger","添加失败！");
+	    		  $scope.account = {};
 		    });
 	  };
 	  $scope.reset = function(){
-		  $scope.topic = {};
+		  $scope.account = {};
 	  };
 	  
 	 
