@@ -53,6 +53,9 @@ public class Account extends Model{
 	@Column(nullable=false)
 	public int isClosed=0;
 	
+	@Column
+	public Long bill_id;
+	
 	@Transient
 	public String usernames;
 	

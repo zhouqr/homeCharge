@@ -6,6 +6,9 @@ angular.module('services.account', [])
             },
             getAccounts:function() {
                 return $http({method:'get',url:'/AccountService/getAccounts'})
+            },
+            chargeAll:function(){
+            	return $http({method:'get',url:'/AccountService/chargeAll'})
             }
         }
     });

@@ -18,6 +18,19 @@ angular.module('charge.account.list',['services.account'])
 	    	 $scope.accounts = data.info; 
 	      });
 	  
-	 
+	 $scope.chargeAll = function(){
+		 Accounts.chargeAll()
+		  .success(function(data){
+		    	  if(data.code == 401){
+		    		  alertHelp("alert-danger",data.msg);
+		    		  $scope.topic = {};
+		    	  }
+		    	  
+		      }, function(x) {
+		    }).error(function(data){
+		    	  alertHelp("alert-danger","添加失败！");
+	    		  $scope.account = {};
+		    });
+	 };
 	 
   }])
