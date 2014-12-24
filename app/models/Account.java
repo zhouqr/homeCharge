@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,8 +33,8 @@ public class Account extends Model{
 	/**
 	 * 参与人id串
 	 */
-	@Column(nullable=false)
-	public String userIds;
+//	@Column(nullable=false)
+//	public String userIds;
 	
 	/**
 	 * 付款人id
@@ -66,20 +67,19 @@ public class Account extends Model{
 		
 	}
 	
-	public Account(Date date, float money, String userIds, Long payUserId, String introduction){
+	public Account(Date date, float money, Long payUserId, String introduction){
 		this.date = date;
 		this.money = money;
-		this.userIds = userIds;
 		this.payUserId = payUserId;
 		this.introduction = introduction;
 		this.isClosed = 0;
 	}
 	
 	public String getUsernames(){
-		String[] ids = this.userIds.split(",");
+		List<Long> userIds = UserAccount.find("select user_id from UserAccount where account_id=?", this.id).fetch();
 		String usernames="";
-		for(String id: ids){
-			usernames +=((User)User.findById(Long.parseLong(id))).username +",";
+		for(Long id: userIds){
+			usernames +=((User)User.findById(id)).username +",";
 		}
 		
 		if(usernames!="")
